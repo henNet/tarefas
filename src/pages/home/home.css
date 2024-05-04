@@ -1,0 +1,32 @@
+.container-task {
+    background-color: #f9faff;
+    padding: 10px 30px;
+    width: 500px;
+    margin-top: 50px;
+    border-radius: 15px;
+}
+
+.form-task {
+    margin-top: 20px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.input-task {
+    background-color: #fff;
+    border: 1px solid #ececec;
+    padding: 15px 10px;
+    width: 375px;
+}
+
+.btn-task {
+    background-color: #d8dff7;
+    color: #1d2b53;
+    border: 1px solid #d8dff7;
+    padding: 15px 10px;
+    cursor: pointer;
+}
+
+.btn-task:hover {
+    background-color: #cfd9f7;
+}
