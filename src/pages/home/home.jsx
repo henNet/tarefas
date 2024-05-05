@@ -46,6 +46,19 @@ function Home() {
       });
   }
 
+  function deleteTask(id_task){
+    fetch("http://localhost:3001/tarefas/" + id_task, {
+      method: "DELETE",
+    })
+      .then(function (response) {
+        showAllTasks();
+      })
+
+      .catch((erro) => {
+        console.log(erro);
+      });
+  }
+
   return (
     <>
       <div className="container-task">
@@ -69,12 +82,17 @@ function Home() {
         <div>
           {allTasks.map((task) => {
             return (
-              <Task description={task.descricao} complete={task.concluido} />
+              <Task 
+                id_task={task.id_tarefa}
+                description={task.descricao} 
+                complete={task.concluido} 
+                onClickDelete={deleteTask}
+              />
             );
           })}
         </div>
       </div>
-      <div className="footer">Feit com ❤️ por Henrique</div>
+      <div className="footer">Feito com ❤️ por Henrique</div>
     </>
   );
 }
