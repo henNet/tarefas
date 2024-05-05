@@ -4,7 +4,9 @@ function Task(props) {
   return (
     <div className="task">
       <div>
-        <input type="checkbox" className="check-task" />
+        <input type="checkbox" 
+        className="check-task" 
+        checked={props.complete === "S" ? true : false}/>
         {props.description}
       </div>
       <svg className="icon-red" height="20" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">

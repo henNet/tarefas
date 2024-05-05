@@ -4,8 +4,9 @@ import { useEffect, useState } from "react";
 
 function Home() {
   const [allTasks, setAllTasks] = useState([]);
+  const [description, setDescription] = useState("");
 
-  useEffect(() => {
+  function showAllTasks() {
     fetch("http://localhost:3001/tarefas")
       .then(function (response) {
         response.json().then((json) => {
@@ -16,12 +17,34 @@ function Home() {
       .catch((erro) => {
         console.log(erro);
       });
+  }
+
+  useEffect(() => {
+    showAllTasks();
   });
 
-  // useEffect(()=>{
-  //   setAllTasks(apiFake);
-  //   console.log("Aqui");
-  // });
+  function addTaks() {
+    const json = {
+      descricao: description,
+      concluido: "N",
+    };
+
+    fetch("http://localhost:3001/tarefas", {
+      method: "POST",
+      body: JSON.stringify(json),
+      headers: {
+        "Content-type": "Application/json",
+      },
+    })
+      .then(function (response) {
+        showAllTasks();
+        setDescription("");
+      })
+
+      .catch((erro) => {
+        console.log(erro);
+      });
+  }
 
   return (
     <>
@@ -32,14 +55,22 @@ function Home() {
           <input
             className="input-task"
             type="text"
+            value={description}
             placeholder="Digite uma tarefa ..."
+            onChange={function (e) {
+              setDescription(e.target.value);
+            }}
           />
-          <button className="btn-task">Inserir Tarefa</button>
+          <button onClick={addTaks} className="btn-task">
+            Inserir Tarefa
+          </button>
         </div>
 
         <div>
           {allTasks.map((task) => {
-            return <Task description={task.descricao} />;
+            return (
+              <Task description={task.descricao} complete={task.concluido} />
+            );
           })}
         </div>
       </div>
