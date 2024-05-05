@@ -30,3 +30,8 @@
 .btn-task:hover {
     background-color: #cfd9f7;
 }
+
+.footer {
+    text-align: center;
+    margin: 20px;
+}
