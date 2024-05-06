@@ -24,6 +24,8 @@ function Home() {
   });
 
   function addTaks() {
+    if (description === "") {alert("Descrição da tarefa vazia!"); return;}
+
     const json = {
       descricao: description,
       concluido: "N",
@@ -89,6 +91,7 @@ function Home() {
         {/* Form: Input e Button */}
         <div className="form-task">
           <input
+            required={true}
             className="input-task"
             type="text"
             value={description}
@@ -97,6 +100,7 @@ function Home() {
               setDescription(e.target.value);
             }}
           />
+
           <button onClick={addTaks} className="btn-task">
             Inserir Tarefa
           </button>
