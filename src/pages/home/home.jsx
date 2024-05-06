@@ -86,6 +86,7 @@ function Home() {
       <div className="container-task">
         <h1>Minhas Taferas</h1>
 
+        {/* Form: Input e Button */}
         <div className="form-task">
           <input
             className="input-task"
@@ -101,7 +102,8 @@ function Home() {
           </button>
         </div>
 
-        <div>
+        {/* Listagem das tarefas */}
+        <div className="all-tasks">
           {allTasks.map((task) => {
             return (
               <Task
@@ -116,6 +118,8 @@ function Home() {
           })}
         </div>
       </div>
+
+      {/* Rodapé */}
       <div className="footer">Feito com ❤️ por Henrique</div>
     </>
   );

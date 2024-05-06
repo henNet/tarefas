@@ -7,13 +7,15 @@
 body {
     font-family: "Roboto";
     margin: 0;
-    padding: 0;
+    /* padding: 0; */
+    padding: 2rem;
     background-color: #d8dff7;
     color: #1d2b53;
-
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
+    /* align-items: normal; */
+    flex-direction: column;
 }
 
 .icon-red {
@@ -23,4 +25,15 @@ body {
 
 .icon-red:hover {
     fill: rgb(207, 40, 40);
+}
+
+@media screen and (max-width: 425px){
+    body {
+        padding: 1rem;
+    }
+
+    h1 {
+        text-align: center;
+    }
+    
 }

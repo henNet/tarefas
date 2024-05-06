@@ -1,30 +1,37 @@
 .container-task {
     background-color: #f9faff;
     padding: 10px 30px;
-    width: 500px;
-    margin-top: 50px;
+    /* width: 500px; */
+    margin-top: 2rem;   
     border-radius: 15px;
+    display: flex;
+    flex-direction: column;
 }
 
 .form-task {
     margin-top: 20px;
-    width: 100%;
+    /* width: 100%; */
     margin-bottom: 20px;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
 }
 
 .input-task {
     background-color: #fff;
     border: 1px solid #ececec;
-    padding: 15px 10px;
-    width: 375px;
+    padding: 12px 10px;
+    /* width: 375px; */
+    flex: 1 1 700px;
 }
 
 .btn-task {
     background-color: #d8dff7;
     color: #1d2b53;
     border: 1px solid #d8dff7;
-    padding: 15px 10px;
+    padding: 12px 10px;
     cursor: pointer;
+    flex: 1;
 }
 
 .btn-task:hover {
@@ -35,3 +42,4 @@
     text-align: center;
     margin: 20px;
 }
+
