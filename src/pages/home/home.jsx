@@ -46,9 +46,31 @@ function Home() {
       });
   }
 
-  function deleteTask(id_task){
+  function deleteTask(id_task) {
     fetch("http://localhost:3001/tarefas/" + id_task, {
       method: "DELETE",
+    })
+      .then(function (response) {
+        showAllTasks();
+      })
+
+      .catch((erro) => {
+        console.log(erro);
+      });
+  }
+
+  function updateTask(id_task, description, complete) {
+    const json = {
+      descricao: description,
+      concluido: complete === true ? "S" : "N",
+    };
+
+    fetch("http://localhost:3001/tarefas/" + id_task, {
+      method: "PUT",
+      body: JSON.stringify(json),
+      headers: {
+        "Content-type": "Application/json",
+      },
     })
       .then(function (response) {
         showAllTasks();
@@ -82,11 +104,13 @@ function Home() {
         <div>
           {allTasks.map((task) => {
             return (
-              <Task 
+              <Task
+                key={task.id_tarefa}
                 id_task={task.id_tarefa}
-                description={task.descricao} 
-                complete={task.concluido} 
+                description={task.descricao}
+                complete={task.concluido}
                 onClickDelete={deleteTask}
+                onClickUpdate={updateTask}
               />
             );
           })}

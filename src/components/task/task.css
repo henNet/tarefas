@@ -12,3 +12,8 @@
 .check-task {
     margin-right: 10px;
 }
+
+.task-done {
+    text-decoration: line-through;
+    color: #c5c1c1; 
+}
